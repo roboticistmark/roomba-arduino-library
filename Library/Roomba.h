@@ -23,6 +23,37 @@ class Roomba
 		
 		// sensor functions
 		int PollSensors(byte *sensorData, byte package);
+		
+		// package 1
+		int GetRBump();
+		int GetLBump();
+		int GetRWheelDrop();
+		int GetCWheelDrop();
+		int GetLWheelDrop();
+		int GetWall();
+		int GetLCliff();
+		int GetFLCliff();
+		int GetFRCliff();
+		int GetRCliff();
+		int GetVWall();
+		int GetSideBrushOC();
+		int GetVacuumOC();
+		int GetMainBrushOC();
+		int GetRMotorOC();
+		int GetLMotorOC();
+		int GetLDirt();
+		int GetRDirt();
+		
+		// package 2
+		int GetRemoteControl();
+		int GetMaxButton();
+		int GetCleanButton();
+		int GetSpotButton();
+		int GetPowerButton();
+		int GetDistance();
+		int GetAngle();
+		
+		// package 3
 		unsigned int GetBatteryMilliVolts();
 		int GetBatteryChargingState();
 		int GetBatteryMilliAmps();

@@ -70,6 +70,7 @@ void Roomba::Max(){
 
 
 // Sensor functions
+
 int Roomba::PollSensors(byte *sensorData, byte package){
 	
 	// counter variable
@@ -95,8 +96,309 @@ int Roomba::PollSensors(byte *sensorData, byte package){
 	return i;
 }
 
+// 1st package
+int Roomba::GetRBump(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[0] & B00000001);
+	else
+		return -1;	
+}
 
+int Roomba::GetLBump(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[0] & B00000010);
+	else
+		return -1;	
+}
 
+int Roomba::GetRWheelDrop(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[0] & B00000100);
+	else
+		return -1;	
+}
+
+int Roomba::GetCWheelDrop(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[0] & B00001000);
+	else
+		return -1;	
+}
+int Roomba::GetLWheelDrop(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[0] & B00010000);
+	else
+		return -1;	
+}
+
+int Roomba::GetWall(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[1]);
+	else
+		return -1;	
+}
+
+int Roomba::GetLCliff(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[2]);
+	else
+		return -1;	
+}
+
+int Roomba::GetFLCliff(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[3]);
+	else
+		return -1;	
+}
+
+int Roomba::GetFRCliff(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[4]);
+	else
+		return -1;	
+}
+
+int Roomba::GetRCliff(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[5]);
+	else
+		return -1;	
+}
+
+int Roomba::GetVWall(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[6]);
+	else
+		return -1;	
+}
+
+int Roomba::GetSideBrushOC(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[7] & B00000001);
+	else
+		return -1;	
+}
+
+int Roomba::GetVacuumOC(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[7] & B00000010);
+	else
+		return -1;	
+}
+
+int Roomba::GetMainBrushOC(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[7] & B00000100);
+	else
+		return -1;	
+}
+
+int Roomba::GetRMotorOC(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(sensorData[7] & B00001000);
+	else
+		return -1;	
+}
+
+int Roomba::GetLMotorOC(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return(bool(sensorData[7] & B00010000));
+	else
+		return -1;	
+}
+
+int Roomba::GetLDirt(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return((byte)sensorData[8]);
+	else
+		return -1;	
+}
+
+int Roomba::GetRDirt(){
+	// using package 1, 10 bytes
+	byte sensorData[10];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 1);
+	
+	if(dataBytes == 10)
+		return((byte)sensorData[9]);
+	else
+		return -1;	
+}
+
+// 2nd package
+
+int Roomba::GetRemoteControl(){
+	// using package 1, 10 bytes
+	byte sensorData[6];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 2);
+	
+	if(dataBytes == 6)
+		return((byte)sensorData[0]);
+	else
+		return -1;
+}
+
+int Roomba::GetMaxButton(){
+	// using package 1, 10 bytes
+	byte sensorData[6];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 2);
+	
+	if(dataBytes == 6)
+		return((bool)(sensorData[1] & B00000001));
+	else
+		return -1;
+}
+
+int Roomba::GetCleanButton(){
+	// using package 1, 10 bytes
+	byte sensorData[6];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 2);
+	
+	if(dataBytes == 6)
+		return((bool)(sensorData[1] & B00000010));
+	else
+		return -1;
+}
+
+int Roomba::GetSpotButton(){
+	// using package 1, 10 bytes
+	byte sensorData[6];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 2);
+	
+	if(dataBytes == 6)
+		return((bool)(sensorData[1] & B00000100));
+	else
+		return -1;
+}
+
+int Roomba::GetPowerButton(){
+	// using package 1, 10 bytes
+	byte sensorData[6];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 2);
+	
+	if(dataBytes == 6)
+		return((bool)(sensorData[1] & B00001000));
+	else
+		return -1;
+}
+
+int Roomba::GetDistance(){
+	// using package 1, 10 bytes
+	byte sensorData[6];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 2);
+	
+	if(dataBytes == 6)
+		return((int)word(sensorData[2], sensorData[3]));
+	else
+		return -1;
+}
+
+int Roomba::GetAngle(){
+	// using package 1, 10 bytes
+	byte sensorData[6];
+	int dataBytes = 0;
+	dataBytes = PollSensors(sensorData, 2);
+	
+	if(dataBytes == 6)
+		return((int)word(sensorData[4], sensorData[5]));
+	else
+		return -1;
+}
+
+// 3rd package
 int Roomba::GetBatteryChargingState(){
 	// using package 3, 10 bytes
 	byte sensorData[10];
